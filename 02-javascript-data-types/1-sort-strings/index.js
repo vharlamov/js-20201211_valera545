@@ -5,11 +5,10 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-    let tmpArr = arr.slice();
+    const tmpArr = arr.slice();
     if( param == 'asc' ) {
-        return tmpArr.sort( (a, b) => a.localeCompare( b, 'ru-en', { caseFirst:'upper', sensitivity:'case', usage:'sort' } ) );
-    } else  {
-        return tmpArr.sort( (a, b) => a.localeCompare( b, 'ru-en', { caseFirst:'lower', sensitivity:'case', usage:'sort' } ) ).reverse();
+        return tmpArr.sort( (a, b) => a.localeCompare( b, ['ru','en'], { caseFirst:'upper', sensitivity:'case', usage:'sort' } ) );
+    } else  if( param == 'desc' ) {
+        return tmpArr.sort( (a, b) => b.localeCompare( a, ['ru','en'], { caseFirst:'lower', sensitivity:'case', usage:'sort' } ) );
     };
 }
-//console.log(sortStrings(['Абрикос', 'абрикос', 'Ёжик', 'ёжик', 'Яблоко', 'яблоко', 'apple', 'Apple', 'banana', 'Banana', 'orange', 'Orange'], 'desc'))
