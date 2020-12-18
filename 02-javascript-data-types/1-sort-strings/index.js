@@ -6,9 +6,19 @@
  */
 export function sortStrings(arr, param = 'asc') {
     const tmpArr = arr.slice();
-    if( param == 'asc' ) {
-        return tmpArr.sort( (a, b) => a.localeCompare( b, ['ru','en'], { caseFirst:'upper', sensitivity:'case', usage:'sort' } ) );
-    } else  if( param == 'desc' ) {
-        return tmpArr.sort( (a, b) => b.localeCompare( a, ['ru','en'], { caseFirst:'lower', sensitivity:'case', usage:'sort' } ) );
-    };
+
+    function f( a, b ) {
+        let caseVal;
+        let first, second;
+        if( param == 'asc' ) {
+            first = a, second = b;
+            caseVal = 'upper';
+        } else if( param == 'desc' ) {
+            first = b, second = a;
+            caseVal = 'lower';
+        }
+      return first.localeCompare( second, ['ru','en'], { caseFirst: caseVal, sensitivity:'case', usage:'sort' } );
+    }
+   
+        return tmpArr.sort( f );
 }
