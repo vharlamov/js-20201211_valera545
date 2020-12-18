@@ -8,8 +8,7 @@ export function sortStrings(arr, param = 'asc') {
     const tmpArr = arr.slice();
 
     function f( a, b ) {
-        let caseVal;
-        let first, second;
+        let first, second, caseVal;
         if( param == 'asc' ) {
             first = a, second = b;
             caseVal = 'upper';
