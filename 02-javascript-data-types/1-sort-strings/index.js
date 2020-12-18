@@ -5,7 +5,7 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-    const tmpArr = arr.slice();
+    const tmpArr = [...arr];
 
     function f( a, b ) {
         let first, second, caseVal;
