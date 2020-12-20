@@ -5,5 +5,19 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
+    const tmpArr = [...arr];
 
+    function f( a, b ) {
+        let first, second, caseVal;
+        if( param == 'asc' ) {
+            first = a, second = b;
+            caseVal = 'upper';
+        } else if( param == 'desc' ) {
+            first = b, second = a;
+            caseVal = 'lower';
+        }
+      return first.localeCompare( second, ['ru','en'], { caseFirst: caseVal, sensitivity:'case', usage:'sort' } );
+    }
+   
+        return tmpArr.sort( f );
 }
