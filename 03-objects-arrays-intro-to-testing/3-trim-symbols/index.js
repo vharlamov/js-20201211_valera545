@@ -24,4 +24,4 @@ export function trimSymbols(string, size) {
         prev = item;
     }
     return newStr.join('');
-  } 
+  }
