@@ -10,4 +10,4 @@ export function invertObj(obj) {
       invObj[value] = key.toString();
     }
     return invObj;
-  }
+  } 

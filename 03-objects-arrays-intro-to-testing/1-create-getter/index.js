@@ -13,4 +13,4 @@ export function createGetter(path) {
       }
     return pathOut;
     }
-  }
+  } 

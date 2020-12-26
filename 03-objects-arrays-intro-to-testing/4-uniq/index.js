@@ -6,4 +6,4 @@
 export function uniq(arr) {
   const tmp = new Set( arr );
   return [...tmp ];
-}
+} 
