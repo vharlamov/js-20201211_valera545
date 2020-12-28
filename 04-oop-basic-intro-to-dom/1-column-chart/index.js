@@ -85,4 +85,4 @@ export default class ColumnChart {
         this.subElements.body.innerHTML = this.makeColumns( data );
       }
     }
-    
+}
