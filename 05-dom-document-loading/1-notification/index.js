@@ -1,9 +1,9 @@
 export default class NotificationMessage {
     static activeNotification;
 
-    constructor( 
+    constructor(
         note = 'success', {
-        duration = 2000, 
+        duration = 2000,
         type = ''
     } = {} ) {
 
@@ -31,7 +31,7 @@ export default class NotificationMessage {
     }
 
     render() {
-        
+
         const element = document.createElement('div');
 
         element.innerHTML = this.template;
@@ -39,7 +39,7 @@ export default class NotificationMessage {
         this.element = element.firstElementChild;
 
         NotificationMessage.activeNotification = this.element;
-    }   
+    }
     show( parent = document.body ) {
 
         parent.append( this.element );
@@ -56,5 +56,5 @@ export default class NotificationMessage {
         this.remove();
         NotificationMessage.activeNotification = null;
     }
- 
+
 }

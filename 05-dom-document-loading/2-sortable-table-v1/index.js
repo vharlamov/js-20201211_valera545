@@ -30,7 +30,7 @@ export default class SortableTable {
     getTableHeader() {
 
         return `<div data-element="header" class="sortable-table__header sortable-table__row">
-        ${this.header.map( item => this.getHeaderRow( item ) ).join('')} 
+        ${this.header.map( item => this.getHeaderRow( item ) ).join('')}
         </div>`
     }
 
@@ -58,7 +58,7 @@ export default class SortableTable {
         } );
 
         const row = cells.map( ({id, template}) => {
-            return template 
+            return template
             ? template( item[id] )
             : `<div class="sortable-table__cell">${item[id]}</div>`;
         });
@@ -70,7 +70,7 @@ export default class SortableTable {
         const wrapper = document.createElement('div');
 
         wrapper.innerHTML = this.getTable();
-        
+
         const element = wrapper.firstElementChild;
 
         this.element = element;
@@ -90,10 +90,10 @@ export default class SortableTable {
         const sortType = this.header.find( item => item.id === field ).sortType;
         const dir = order === 'asc' ? 1 : -1;
 
-            switch( sortType ) { 
+            switch( sortType ) {
                 case 'string':
                     return temp.sort( (a, b) => a[field].localeCompare( b[field], ['ru', 'en'], {caseFirst: 'upper', sensitivity: 'case', usage: 'sort'}) * dir );
-                case 'number': 
+                case 'number':
                     return temp.sort( (a, b) => (a[field] - b[field]) * dir );
                 case 'custom':
                     return temp.sort( (a, b) => customSort(a, b) * dir );

@@ -81,7 +81,6 @@ export default class SortableTable {
       const element = wrapper.firstElementChild;
   
       this.element = element;
-      console.log(element);
       this.subElements = this.getSubElements(element);
     }
   
