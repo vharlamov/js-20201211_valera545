@@ -65,7 +65,7 @@ export default class SortableTable {
 
         return row.join('');
     }
- 
+
     render() {
         const wrapper = document.createElement('div');
 
