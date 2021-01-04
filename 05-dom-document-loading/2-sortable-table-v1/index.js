@@ -68,7 +68,7 @@ export default class SortableTable {
 
     render() {
         const wrapper = document.createElement('div');
-        
+
         wrapper.innerHTML = this.getTable();
         
         const element = wrapper.firstElementChild;
@@ -90,7 +90,7 @@ export default class SortableTable {
         const sortType = this.header.find( item => item.id === field ).sortType;
         const dir = order === 'asc' ? 1 : -1;
 
-            switch( sortType ) {
+            switch( sortType ) { 
                 case 'string':
                     return temp.sort( (a, b) => a[field].localeCompare( b[field], ['ru', 'en'], {caseFirst: 'upper', sensitivity: 'case', usage: 'sort'}) * dir );
                 case 'number': 

@@ -55,6 +55,6 @@ export default class NotificationMessage {
     destroy() {
         this.remove();
         NotificationMessage.activeNotification = null;
-    } 
+    }
  
 }
