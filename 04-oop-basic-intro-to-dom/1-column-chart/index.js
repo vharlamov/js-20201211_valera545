@@ -3,9 +3,9 @@ export default class ColumnChart {
     chartHeight = 50;
 
     constructor({
-        data = [], 
-        value = 0, 
-        link = '', 
+        data = [],
+        value = 0,
+        link = '',
         label = ''
     } = {}) {
         this.data = data;
@@ -14,7 +14,7 @@ export default class ColumnChart {
         this.link = link;
         this.render();
       }
-    
+
 
     makeLink() {
         return this.link ? `<a class="column-chart__link" href="${this.link}">View all</a>` : '';
@@ -29,7 +29,7 @@ export default class ColumnChart {
             cols = data.map( item => `<div style='--value: ${Math.floor( item*relHeigth )}' data-tooltip='${(item/max*100).toFixed(0)}%'></div>`);
         } else if( data.length ) {
             cols = data.map( item => `<div style='--value: 1' ></div> `);
-        } 
+        }
         return cols.join('');
         }
 
@@ -52,10 +52,10 @@ export default class ColumnChart {
 
     getSubElements(element) {
         const elements = element.querySelectorAll('[data-element]');
-    
+
         return [...elements].reduce((accum, subElement) => {
             accum[subElement.dataset.element] = subElement;
-    
+
             return accum;
         }, {});
     }
@@ -71,11 +71,11 @@ export default class ColumnChart {
 
         this.subElements = this.getSubElements( this.element );
      }
-        
+
       remove () {
         this.element.remove();
       }
-    
+
       destroy() {
         this.remove();
         this.element = null;
@@ -85,4 +85,4 @@ export default class ColumnChart {
         this.subElements.body.innerHTML = this.makeColumns( data );
       }
     }
-    
+}
