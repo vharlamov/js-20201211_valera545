@@ -153,8 +153,6 @@ export default class SortableTable {
         this.element.remove();
         SortableTable.container = null;
     }
-
-
 }
 
 
