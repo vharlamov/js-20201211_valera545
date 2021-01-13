@@ -125,4 +125,4 @@ export default class ColumnChart {
         await this.getData()
     }
 
-}
+} 
