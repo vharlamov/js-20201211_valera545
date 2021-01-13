@@ -88,8 +88,6 @@ export default class ColumnChart {
 
             this.subElements.body.innerHTML = this.makeColumns(data);
 
-            console.log(this.subElements.body.children.length);
-            console.log(data.length);
 
         } 
     }
@@ -117,7 +115,6 @@ export default class ColumnChart {
 
     destroy() {
     this.element.remove();
-    //this.element = null;
     }
 
     async update( start, end ) {
